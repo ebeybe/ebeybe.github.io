@@ -49,14 +49,14 @@ header nav ul {
 }
 
 header nav ul li {
-    color: #006400;
+    color: #000;
     display: inline;
     margin: 0 15px;
 }
 
 header nav ul li a {
     text-decoration: none;
-    color: #90ee90;
+    color: #000;
     font-weight: bold;
     padding: 5px 10px;
     border-bottom: 2px solid black;
@@ -270,7 +270,7 @@ hr::after {
 
 .toggle-button {
     padding: 10px 20px;
-    background-color: #3498db;
+    background-color: #372;
     color: white;
     border: none;
     cursor: pointer;
@@ -280,7 +280,7 @@ hr::after {
 }
 
 .toggle-button:hover {
-    background-color: #2980b9;
+    background-color: #372;
 }
 
 .social-menu {
@@ -288,7 +288,7 @@ hr::after {
     position: absolute;
     top: 40px;
     left: 0;
-    background-color: #ffffff;
+    background-color: #222;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     padding: 10px;
     border-radius: 5px;
@@ -298,7 +298,7 @@ hr::after {
     display: block;
     margin-bottom: 10px;
     text-decoration: none;
-    color: #333333;
+    color: #fff;
 }
 
 .social-menu img {
@@ -311,7 +311,7 @@ hr::after {
 .username {
     font-weight: bold;
     font-size: 14px;
-    color: #666666;
+    color: #fff;
     margin-left: 8px;
 }
 
@@ -326,4 +326,19 @@ hr::after {
     height: 32px;
     margin-right: 10px;
     vertical-align: middle;
+}
+
+.clase {
+    color: #ff69b4; /* Color rosado */
+    text-decoration: none; /* Quita el subrayado */
+    font-weight: bold; /* Negrita */
+    padding: 5px 10px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+}
+
+.clase:hover {
+    background-color: #ff1493; /* Fondo rosado intenso al pasar el cursor */
+    color: #fff; /* Texto blanco al pasar el cursor */
 }
