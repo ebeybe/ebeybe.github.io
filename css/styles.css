@@ -1,0 +1,329 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-optical-sizing: auto;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f8f4e3; /* Beige background */
+    color: #333; /* Dark gray for text */
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Container for maximum width */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    background-color: #fff;
+    border-bottom: 2px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+header #logo img {
+    width: 150px;
+    display: block;
+    margin: 10px auto;
+    border-radius: 50%; /* Makes the borders of the image rounded */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}
+
+header nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+header nav ul li {
+    color: #006400;
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #90ee90;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-bottom: 2px solid black;
+    transition: background 0.3s, color 0.3s;
+}
+
+header nav ul li a:hover {
+    background-color: #90ee90; /* Light green background */
+    color: #006400; /* Dark green text */
+    border-radius: 5px;
+}
+
+/* Main Content Styles */
+main {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+main h1, main h2 {
+    color: #006400; /* Dark green */
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+main h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+main p {
+    margin-bottom: 20px;
+}
+
+main strong {
+    color: #90ee90; /* Light green */
+}
+
+main img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+main section {
+    margin-bottom: 40px;
+}
+
+/* Aside Styles */
+aside {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+aside h2 {
+    color: #006400; /* Dark green */
+    margin-bottom: 10px;
+}
+
+aside p {
+    margin-bottom: 15px;
+}
+
+aside h2, aside p {
+    text-align: center;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #fff;
+    border-top: 2px solid #ccc;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    text-decoration: none;
+    color: #006400; /* Dark green */
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #90ee90; /* Light green */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header #logo img {
+        width: 120px;
+    }
+
+    header nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    main, aside {
+        padding: 10px;
+    }
+
+    main h1 {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    header #logo img {
+        width: 100px;
+    }
+
+    main h1 {
+        font-size: 1.2em;
+    }
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, #90ee90, #006400, #90ee90); /* Light green to dark green gradient */
+    margin: 20px 0;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+hr::before {
+    content: "";
+    display: block;
+    height: 5px;
+    background: #006400; /* Dark green */
+    width: 20px;
+    border-radius: 2px;
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+hr::after {
+    content: "";
+    display: block;
+    height: 5px;
+    background: #006400; /* Dark green */
+    width: 20px;
+    border-radius: 2px;
+    position: absolute;
+    top: -2px;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+.whatsapp {
+  position:fixed;
+  width:60px;
+  height:60px;
+  bottom:40px;
+  right:40px;
+  background-color:#25d366;
+  color:#FFF;
+  border-radius:50px;
+  text-align:center;
+  font-size:30px;
+  z-index:100;
+}
+
+.whatsapp-icon {
+  margin-top:13px;
+}
+
+.linea-roja {
+    border-bottom: 2px solid red; /* Línea roja debajo del texto */
+}
+
+.linea-verde {
+    border-bottom: 2px solid green; /* Línea verde debajo del texto */
+}
+
+.linea-rosita {
+    border-bottom: 2px solid pink; /* Línea rosita debajo del texto */
+}
+
+.linea-morada {
+    border-bottom: 2px solid #ED43DC; /* Línea morada debajo del texto */
+}
+
+.linea-azul {
+    border-bottom: 2px solid blue; /* Línea azul debajo del texto */
+}
+
+/* Estilos para el botón flotante y el menú */
+.floating-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.toggle-button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+.toggle-button:hover {
+    background-color: #2980b9;
+}
+
+.social-menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.social-menu a {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #333333;
+}
+
+.social-menu img {
+    width: 32px; /* Ajusta el tamaño según tus necesidades */
+    height: 32px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+/* Estilos adicionales para el nombre de usuario */
+.username {
+    font-weight: bold;
+    font-size: 14px;
+    color: #666666;
+    margin-left: 8px;
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.social-item img {
+    width: 32px; /* Ajusta el tamaño según tus necesidades */
+    height: 32px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
