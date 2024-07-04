@@ -150,6 +150,8 @@
         {input: {texto: 'precios para niños'}, output: {respuesta: 'El precio para los cortes de niño es 140 pesos mexicanos.'}},
         {input: {texto: 'precios para niñas'}, output: {respuesta: 'El precio para los cortes de niña es 150 pesos mexicanos.'}},
         {input: {texto: 'quiero agendar una cita'}, output: {respuesta: 'Se agenda por cita. No máximo a 10 minutos de espera por cita sin excepciones.'}},
+        {input: {texto: 'servicios disponibles'}, output: {respuesta: 'Nuestros Servicios Disponibles son: Cortes de Niños, Niñas, Caballero, Dama, Titnes, Rayitos, Planchados .'}},
+        {input: {texto: 'que servicios ofrecen'}, output: {respuesta: 'Nuestros Servicios Disponibles son: Cortes de Niños, Niñas, Caballero, Dama, Titnes, Rayitos, Planchados .'}},
         {input: {texto: 'dónde los puedo encontrar'}, output: {respuesta: 'Estamos ubicados en Playas de Tijuana, Sección Jardines, frente al Mercado Emilia.'}}
     ]);
 
@@ -192,6 +194,8 @@
             'precios para niños': ['precios para niños', 'precio para niños', 'tarifas para niños'],
             'precios para niñas': ['precios para niñas', 'precio para niñas', 'tarifas para niñas'],
             'quiero agendar una cita': ['quiero agendar una cita', 'quiero una cita', 'agendar cita', 'reservar cita'],
+            'que servicios ofrecen': ['trabajos', 'servicio', 'trabajo'],
+            'cuales son sus servicios': ['trabajos', 'servicio', 'trabajo'],
             'dónde los puedo encontrar': ['dónde los puedo encontrar', 'donde están', 'ubicación', 'dirección', 'localización']
         };
 
@@ -251,6 +255,12 @@
                             break;
                         case 'dónde los puedo encontrar':
                             respuesta = 'Estamos ubicados en Playas de Tijuana, Sección Jardines, frente al Mercado Emilia.';
+                            break;
+                        case 'que servicios ofrecen':
+                            respuesta = 'Nuestros Servicios Disponibles son: Cortes de Niños, Niñas, Caballero, Dama, Titnes, Rayitos, Planchados.';
+                            break;
+                        case 'cuales son sus servicios':
+                            respuesta = 'Nuestros Servicios Disponibles son: Cortes de Niños, Niñas, Caballero, Dama, Titnes, Rayitos, Planchados.';
                             break;
                     }               
                     break;
