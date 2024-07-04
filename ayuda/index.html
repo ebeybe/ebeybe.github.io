@@ -152,6 +152,27 @@
         {input: {texto: 'quiero agendar una cita'}, output: {respuesta: 'Se agenda por cita. No máximo a 10 minutos de espera por cita sin excepciones.'}},
         {input: {texto: 'servicios disponibles'}, output: {respuesta: 'Nuestros Servicios Disponibles son: Cortes de Niños, Niñas, Caballero, Dama, Titnes, Rayitos, Planchados .'}},
         {input: {texto: 'que servicios ofrecen'}, output: {respuesta: 'Nuestros Servicios Disponibles son: Cortes de Niños, Niñas, Caballero, Dama, Titnes, Rayitos, Planchados .'}},
+        {input: {texto: 'abren los lunes'}, output: {respuesta: 'Sí, abrimos los lunes de 10 am a 7 pm.'}},
+{input: {texto: 'abren los martes'}, output: {respuesta: 'Sí, abrimos los martes de 10 am a 7 pm.'}},
+{input: {texto: 'abren los miércoles'}, output: {respuesta: 'Sí, abrimos los miércoles de 10 am a 7 pm.'}},
+{input: {texto: 'abren los jueves'}, output: {respuesta: 'Sí, abrimos los jueves de 10 am a 7 pm.'}},
+{input: {texto: 'abren los viernes'}, output: {respuesta: 'Sí, abrimos los viernes de 10 am a 7 pm.'}},
+{input: {texto: 'abren los sábados'}, output: {respuesta: 'Sí, abrimos los sábados de 11 am a 5 pm.'}},
+{input: {texto: 'abren los domingos'}, output: {respuesta: 'Sí, abrimos los domingos de 11 am a 3 pm.'}},
+{input: {texto: 'que días abren'}, output: {respuesta: 'Abrimos de lunes a viernes de 10 am a 7 pm, sábados de 11 am a 5 pm y domingos de 11 am a 3 pm.'}},
+{input: {texto: 'cómo puedo hacer una cita'}, output: {respuesta: 'Puede hacer una cita llamando al 664 240 2542 o enviando un mensaje de WhatsApp al mismo número.'}},
+{input: {texto: 'necesito hacer una cita'}, output: {respuesta: 'Sí, se necesita hacer una cita. Por favor llame o envíe un mensaje de WhatsApp al 664 240 2542.'}},
+{input: {texto: 'hay estacionamiento disponible'}, output: {respuesta: 'Sí, contamos con estacionamiento gratuito para nuestros clientes.'}},
+{input: {texto: 'aceptan tarjetas de crédito'}, output: {respuesta: 'Sí, aceptamos tarjetas de crédito y débito.'}},
+{input: {texto: 'hacen cortes especiales'}, output: {respuesta: 'Sí, realizamos cortes especiales según sus preferencias. Puede traer una foto o describirnos el estilo que desea.'}},
+{input: {texto: 'hacen peinados para eventos'}, output: {respuesta: 'Sí, ofrecemos peinados para eventos especiales como bodas, graduaciones, y fiestas.'}},
+{input: {texto: 'ofrecen servicios de maquillaje'}, output: {respuesta: 'Sí, ofrecemos servicios de maquillaje para eventos especiales. Por favor, haga una cita con anticipación.'}},
+{input: {texto: 'tienen ofertas especiales'}, output: {respuesta: 'Sí, tenemos ofertas especiales. Por favor, consulte nuestras redes sociales o llámenos para más detalles.'}},
+{input: {texto: 'cuánto tiempo dura una cita'}, output: {respuesta: 'La duración de la cita depende del servicio que necesite. Por favor, llámenos para más detalles.'}},
+{input: {texto: 'hacen tratamientos capilares'}, output: {respuesta: 'Sí, ofrecemos una variedad de tratamientos capilares para mejorar la salud y apariencia de su cabello.'}},
+{input: {texto: 'cuánto cuesta un tratamiento capilar'}, output: {respuesta: 'El costo de los tratamientos capilares varía según el tipo de tratamiento. Por favor, contáctenos para una cotización.'}},
+{input: {texto: 'puedo cancelar una cita'}, output: {respuesta: 'Sí, puede cancelar una cita llamándonos o enviando un mensaje de WhatsApp con al menos 24 horas de anticipación.'}},
+{input: {texto: 'tienen página web'}, output: {respuesta: 'Sí, nuestra página web es www.ebeybe.com. Puede encontrar más información sobre nuestros servicios y hacer citas en línea.'}},
         {input: {texto: 'dónde los puedo encontrar'}, output: {respuesta: 'Estamos ubicados en Playas de Tijuana, Sección Jardines, frente al Mercado Emilia.'}}
     ]);
 
@@ -178,25 +199,46 @@
 
         // Identificar sinónimos y palabras similares
         var keywords = {
-            'ubicación': ['ubicación', 'donde', 'dónde', 'ubicada', 'localización'],
-            'horarios': ['horarios', 'horas', 'apertura', 'cierre', 'tiempo', 'disponible'],
-            'cortes de niños': ['cortes de niños', 'corte de niño', 'cortes de niña', 'corte de niña', 'precio cortes de niños', 'precios cortes de niñas'],
-            'cortes de caballero': ['cortes de caballero', 'corte de caballero', 'corte de hombre'],
-            'cortes de dama': ['cortes de dama', 'corte de dama', 'corte de mujer'],
-            'tintes': ['tintes', 'rayitos', 'tinte', 'coloración'],
-            'planchados': ['planchados', 'planchado'],
-            'número de teléfono': ['número de teléfono', 'teléfono', 'número', 'contacto', 'whatsapp'],
-            'productos de belleza': ['productos de belleza', 'productos', 'belleza', 'cuidado del cabello'],
-            'citas': ['citas', 'cita', 'reservar', 'reserva'],
-            'precios': ['precios', 'precio', 'costos', 'coste', 'tarifas'],
-            'precios para caballero': ['precios para caballero', 'precio para caballero', 'tarifas para caballero'],
-            'precios para dama': ['precios para dama', 'precio para dama', 'tarifas para dama'],
-            'precios para niños': ['precios para niños', 'precio para niños', 'tarifas para niños'],
-            'precios para niñas': ['precios para niñas', 'precio para niñas', 'tarifas para niñas'],
-            'quiero agendar una cita': ['quiero agendar una cita', 'quiero una cita', 'agendar cita', 'reservar cita'],
-            'que servicios ofrecen': ['trabajos', 'servicio', 'trabajo'],
-            'cuales son sus servicios': ['trabajos', 'servicio', 'trabajo'],
-            'dónde los puedo encontrar': ['dónde los puedo encontrar', 'donde están', 'ubicación', 'dirección', 'localización']
+          'ubicación': ['ubicación', 'donde', 'dónde', 'ubicada', 'localización'],
+          'horarios': ['horarios', 'horas', 'apertura', 'cierre', 'tiempo', 'disponible'],
+          'cortes de niños': ['cortes de niños', 'corte de niño', 'cortes de niña', 'corte de niña', 'precio cortes de niños', 'precios cortes de niñas'],
+          'cortes de caballero': ['cortes de caballero', 'corte de caballero', 'corte de hombre'],
+          'cortes de dama': ['cortes de dama', 'corte de dama', 'corte de mujer'],
+          'tintes': ['tintes', 'rayitos', 'tinte', 'coloración'],
+          'planchados': ['planchados', 'planchado'],
+          'número de teléfono': ['número de teléfono', 'teléfono', 'número', 'contacto', 'whatsapp'],
+          'productos de belleza': ['productos de belleza', 'productos', 'belleza', 'cuidado del cabello'],
+          'citas': ['citas', 'cita', 'reservar', 'reserva'],
+          'precios': ['precios', 'precio', 'costos', 'coste', 'tarifas'],
+          'precios para caballero': ['precios para caballero', 'precio para caballero', 'tarifas para caballero'],
+          'precios para dama': ['precios para dama', 'precio para dama', 'tarifas para dama'],
+          'precios para niños': ['precios para niños', 'precio para niños', 'tarifas para niños'],
+          'precios para niñas': ['precios para niñas', 'precio para niñas', 'tarifas para niñas'],
+          'quiero agendar una cita': ['quiero agendar una cita', 'quiero una cita', 'agendar cita', 'reservar cita'],
+          'que servicios ofrecen': ['trabajos', 'servicio', 'trabajo'],
+          'cuales son sus servicios': ['trabajos', 'servicio', 'trabajo'],
+          'dónde los puedo encontrar': ['dónde los puedo encontrar', 'donde están', 'ubicación', 'dirección', 'localización'],
+          'abren los lunes': ['abren los lunes', 'lunes', 'abiertos lunes'],
+          'abren los martes': ['abren los martes', 'martes', 'abiertos martes'],
+          'abren los miércoles': ['abren los miércoles', 'miércoles', 'abiertos miércoles'],
+          'abren los jueves': ['abren los jueves', 'jueves', 'abiertos jueves'],
+          'abren los viernes': ['abren los viernes', 'viernes', 'abiertos viernes'],
+          'abren los sábados': ['abren los sábados', 'sábados', 'abiertos sábados'],
+          'abren los domingos': ['abren los domingos', 'domingos', 'abiertos domingos'],
+          'que días abren': ['que días abren', 'días abiertos', 'días de apertura', 'horario de apertura'],
+          'cómo puedo hacer una cita': ['cómo puedo hacer una cita', 'hacer una cita', 'agendar una cita', 'cita'],
+          'necesito hacer una cita': ['necesito hacer una cita', 'hacer una cita', 'agendar una cita', 'cita'],
+          'hay estacionamiento disponible': ['hay estacionamiento disponible', 'estacionamiento', 'aparcar'],
+          'aceptan tarjetas de crédito': ['aceptan tarjetas de crédito', 'tarjetas de crédito', 'pago con tarjeta', 'crédito'],
+          'hacen cortes especiales': ['hacen cortes especiales', 'cortes especiales', 'estilos especiales', 'cortes únicos'],
+          'hacen peinados para eventos': ['hacen peinados para eventos', 'peinados para eventos', 'peinados especiales', 'eventos'],
+          'ofrecen servicios de maquillaje': ['ofrecen servicios de maquillaje', 'servicios de maquillaje', 'maquillaje'],
+          'tienen ofertas especiales': ['tienen ofertas especiales', 'ofertas especiales', 'promociones', 'descuentos'],
+          'cuánto tiempo dura una cita': ['cuánto tiempo dura una cita', 'duración de la cita', 'tiempo de la cita'],
+          'hacen tratamientos capilares': ['hacen tratamientos capilares', 'tratamientos capilares', 'tratamiento del cabello', 'tratamiento capilar'],
+          'cuánto cuesta un tratamiento capilar': ['cuánto cuesta un tratamiento capilar', 'precio tratamiento capilar', 'costo tratamiento capilar'],
+          'puedo cancelar una cita': ['puedo cancelar una cita', 'cancelar cita', 'anular cita', 'cancelar'],
+          'tienen página web': ['tienen página web', 'página web', 'sitio web', 'web']
         };
 
         // Determinar la respuesta basada en palabras clave
@@ -205,64 +247,126 @@
             for (var i = 0; i < keywords[key].length; i++) {
                 if (entradaNormalizada.includes(keywords[key][i])) {
                     switch (key) {
-                        case 'ubicación':
-                            respuesta = 'Estamos ubicados en Playas de Tijuana, Sección Jardines, frente al Mercado Emilia.';
-                            break;
-                        case 'horarios':
-                            respuesta = 'Nuestro horario es de lunes a viernes de 10 am a 7 pm, sábados de 11 am a 5 pm y domingos de 11 am a 3 pm.';
-                            break;
-                        case 'cortes de niños':
-                            respuesta = 'Hacemos cortes de niños y niñas. El precio para los cortes de niño es 140 pesos mexicanos y el precio para los cortes de niña es 150 pesos mexicanos.';
-                            break;
-                        case 'cortes de caballero':
-                            respuesta = 'Los cortes de caballero tienen un valor de 140 pesos mexicanos.';
-                            break;
-                        case 'cortes de dama':
-                            respuesta = 'Los cortes de dama tienen un valor de 150 pesos mexicanos.';
-                            break;
-                        case 'tintes':
-                            respuesta = 'Realizamos tintes y rayitos. Los precios varían, se necesita una cotización y evaluar la calidad del cabello.';
-                            break;
-                        case 'planchados':
-                            respuesta = 'Los planchados tienen un valor de 200 pesos mexicanos.';
-                            break;
-                        case 'número de teléfono':
-                            respuesta = 'El número de teléfono es 664 240 2542.';
-                            break;
-                        case 'productos de belleza':
-                            respuesta = 'Vendemos productos de belleza y cuidado para el cabello. Pregunta por nuestros productos al número de WhatsApp que es el mismo para las llamadas.';
-                            break;
-                        case 'citas':
-                            respuesta = 'Se agenda por cita. No máximo a 10 minutos de espera por cita sin excepciones.';
-                            break;
-                        case 'precios':
-                            respuesta = 'Ofrecemos varios servicios con diferentes precios. Por favor especifique si desea conocer precios para caballero, dama, niños o niñas.';
-                            break;
-                        case 'precios para caballero':
-                            respuesta = 'Los cortes de caballero tienen un valor de 140 pesos mexicanos.';
-                            break;
-                        case 'precios para dama':
-                            respuesta = 'Los cortes de dama tienen un valor de 150 pesos mexicanos.';
-                            break;
-                        case 'precios para niños':
-                            respuesta = 'El precio para los cortes de niño es 140 pesos mexicanos.';
-                            break;
-                        case 'precios para niñas':
-                            respuesta = 'El precio para los cortes de niña es 150 pesos mexicanos.';
-                            break;
-                        case 'quiero agendar una cita':
-                            respuesta = 'Se agenda por cita. No máximo a 10 minutos de espera por cita sin excepciones.';
-                            break;
-                        case 'dónde los puedo encontrar':
-                            respuesta = 'Estamos ubicados en Playas de Tijuana, Sección Jardines, frente al Mercado Emilia.';
-                            break;
-                        case 'que servicios ofrecen':
-                            respuesta = 'Nuestros Servicios Disponibles son: Cortes de Niños, Niñas, Caballero, Dama, Titnes, Rayitos, Planchados.';
-                            break;
-                        case 'cuales son sus servicios':
-                            respuesta = 'Nuestros Servicios Disponibles son: Cortes de Niños, Niñas, Caballero, Dama, Titnes, Rayitos, Planchados.';
-                            break;
-                    }               
+                      case 'ubicación':
+                          respuesta = 'Estamos ubicados en Playas de Tijuana, Sección Jardines, frente al Mercado Emilia.';
+                          break;
+                      case 'horarios':
+                          respuesta = 'Nuestro horario es de lunes a viernes de 10 am a 7 pm, sábados de 11 am a 5 pm y domingos de 11 am a 3 pm.';
+                          break;
+                      case 'cortes de niños':
+                          respuesta = 'Hacemos cortes de niños y niñas. El precio para los cortes de niño es 140 pesos mexicanos y el precio para los cortes de niña es 150 pesos mexicanos.';
+                          break;
+                      case 'cortes de caballero':
+                          respuesta = 'Los cortes de caballero tienen un valor de 140 pesos mexicanos.';
+                          break;
+                      case 'cortes de dama':
+                          respuesta = 'Los cortes de dama tienen un valor de 150 pesos mexicanos.';
+                          break;
+                      case 'tintes':
+                          respuesta = 'Realizamos tintes y rayitos. Los precios varían, se necesita una cotización y evaluar la calidad del cabello.';
+                          break;
+                      case 'planchados':
+                          respuesta = 'Los planchados tienen un valor de 200 pesos mexicanos.';
+                          break;
+                      case 'número de teléfono':
+                          respuesta = 'El número de teléfono es 664 240 2542.';
+                          break;
+                      case 'productos de belleza':
+                          respuesta = 'Vendemos productos de belleza y cuidado para el cabello. Pregunta por nuestros productos al número de WhatsApp que es el mismo para las llamadas.';
+                          break;
+                      case 'citas':
+                          respuesta = 'Se agenda por cita. No máximo a 10 minutos de espera por cita sin excepciones.';
+                          break;
+                      case 'precios':
+                          respuesta = 'Ofrecemos varios servicios con diferentes precios. Por favor especifique si desea conocer precios para caballero, dama, niños o niñas.';
+                          break;
+                      case 'precios para caballero':
+                          respuesta = 'Los cortes de caballero tienen un valor de 140 pesos mexicanos.';
+                          break;
+                      case 'precios para dama':
+                          respuesta = 'Los cortes de dama tienen un valor de 150 pesos mexicanos.';
+                          break;
+                      case 'precios para niños':
+                          respuesta = 'El precio para los cortes de niño es 140 pesos mexicanos.';
+                          break;
+                      case 'precios para niñas':
+                          respuesta = 'El precio para los cortes de niña es 150 pesos mexicanos.';
+                          break;
+                      case 'quiero agendar una cita':
+                          respuesta = 'Para agendar una cita, puedes contactarnos al 664 240 2542 o por WhatsApp al mismo número.';
+                          break;
+                     case 'que servicios ofrecen':
+                     case 'cuales son sus servicios':
+                          respuesta = 'Nuestros Servicios Disponibles son: Cortes de Niños, Niñas, Caballero, Dama, Tintes, Rayitos, Planchados.';
+                          break;
+                     case 'dónde los puedo encontrar':
+                         respuesta = 'Estamos ubicados en Playas de Tijuana, Sección Jardines, frente al Mercado Emilia.';
+                         break;
+                     case 'abren los lunes':
+                         respuesta = 'Sí, estamos abiertos los lunes de 10 am a 7 pm.';
+                         break;
+                     case 'abren los martes':
+                         respuesta = 'Sí, estamos abiertos los martes de 10 am a 7 pm.';
+                         break;
+                     case 'abren los miércoles':
+                         respuesta = 'Sí, estamos abiertos los miércoles de 10 am a 7 pm.';
+                         break;
+                     case 'abren los jueves':
+                         respuesta = 'Sí, estamos abiertos los jueves de 10 am a 7 pm.';
+                         break;
+                     case 'abren los viernes':
+                         respuesta = 'Sí, estamos abiertos los viernes de 10 am a 7 pm.';
+                         break;
+                     case 'abren los sábados':
+                         respuesta = 'Sí, estamos abiertos los sábados de 11 am a 5 pm.';
+                        break;
+                     case 'abren los domingos':
+                         respuesta = 'Sí, estamos abiertos los domingos de 11 am a 3 pm.';
+                         break;
+                     case 'que días abren':
+                         respuesta = 'Nuestro horario es de lunes a viernes de 10 am a 7 pm, sábados de 11 am a 5 pm y domingos de 11 am a 3 pm.';
+                         break;
+                     case 'cómo puedo hacer una cita':
+                     case 'necesito hacer una cita':
+                         respuesta = 'Para hacer una cita, puedes contactarnos al 664 240 2542 o por WhatsApp al mismo número.';
+                         break;
+                     case 'hay estacionamiento disponible':
+                         respuesta = 'Sí, tenemos estacionamiento disponible para nuestros clientes.';
+                         break;
+                     case 'aceptan tarjetas de crédito':
+                         respuesta = 'Sí, aceptamos tarjetas de crédito como forma de pago.';
+                         break;
+                     case 'hacen cortes especiales':
+                         respuesta = 'Sí, hacemos cortes especiales y estilos únicos. Por favor consulta con nuestro estilista para más detalles.';
+                         break;
+                     case 'hacen peinados para eventos':
+                         respuesta = 'Sí, ofrecemos servicios de peinados para eventos especiales.';
+                         break;
+                     case 'ofrecen servicios de maquillaje':
+                         respuesta = 'Sí, también ofrecemos servicios de maquillaje.';
+                         break;
+                     case 'tienen ofertas especiales':
+                         respuesta = 'Sí, tenemos ofertas especiales y promociones. Por favor consulta con nosotros para más información.';
+                         break;
+                     case 'cuánto tiempo dura una cita':
+                         respuesta = 'La duración de una cita puede variar según el servicio, pero generalmente dura entre 30 minutos a 1 hora.';
+                         break;
+                     case 'hacen tratamientos capilares':
+                         respuesta = 'Sí, ofrecemos tratamientos capilares. Consulta con nosotros para más detalles y precios.';
+                         break;
+                     case 'cuánto cuesta un tratamiento capilar':
+                         respuesta = 'El costo de un tratamiento capilar varía según el tipo de tratamiento. Por favor consulta con nosotros para obtener una cotización.';
+                         break;
+                     case 'puedo cancelar una cita':
+                         respuesta = 'Sí, puedes cancelar una cita llamándonos al 664 240 2542 o enviando un mensaje por WhatsApp al mismo número.';
+                         break;
+                     case 'tienen página web':
+                         respuesta = 'Sí, puedes visitarnos en nuestra página web para más información y para agendar citas en línea.';
+                         break;
+                     default:
+                         respuesta = 'Lo siento, no tengo información sobre eso en este momento.';
+                         break;
+                     }                 
                     break;
                 }
             }
