@@ -1,20 +1,233 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
+    <title>Chatbot de Negocio de Belleza</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejemplo de línea debajo del texto</title>
-    <style>
-        .linea-roja {
-            border-bottom: 2px solid red; /* Línea roja debajo del texto */
+    <style type="text/css">
+        /* Estilos generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f4e3;
+            color: #fff;
+            height: 100vh;
+            margin: 0;
         }
 
-        .linea-verde {
-            border-bottom: 2px solid green; /* Línea verde debajo del texto */
+        h1 {
+            font-size: 1.2rem;
+            text-align: center;
+            color: #222;
+            margin-bottom: 1rem;
         }
+
+        /* Estilos del chatbox */
+        #chatbox {
+    width: 100%;
+    max-width: 400px;
+    height: 70vh;
+    background-color: #2c2c2e;
+    border: 1px solid #3a3a3c;
+    border-radius: 10px;
+    padding: 15px;
+    overflow-y: auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    margin: 0 auto; /* Center the chatbox on the page */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+}
+
+@media (max-width: 768px) {
+    #chatbox {
+        height: 60vh; /* Adjust height for smaller screens */
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    #chatbox {
+        height: 50vh; /* Further adjust height for very small screens */
+        padding: 8px; /* Further reduce padding for very small screens */
+    }
+}
+
+        .message {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            word-wrap: break-word;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message.user span {
+            background-color: #0a84ff;
+            color: #fff;
+            border-radius: 15px 15px 0 15px;
+        }
+
+        .message.bot span {
+            background-color: #3a3a3c;
+            color: #fff;
+            border-radius: 15px 15px 15px 0;
+        }
+
+        .message span {
+            padding: 10px 15px;
+            max-width: 70%;
+            display: inline-block;
+        }
+
+        /* Estilos del input */
+        #userInput {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #3a3a3c;
+            border-radius: 25px;
+            background-color: #2c2c2e;
+            color: #fff;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0a84ff;
+            border: none;
+            border-radius: 25px;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            background-color: #007aff;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 600px) {
+            #chatbox {
+                height: 60vh;
+            }
+        }
+        p {
+    margin-bottom: 15px;
+    text-align: center;
+    color: #222;
+}
     </style>
 </head>
 <body>
-    <p>hola buenos días este es un día <span class="linea-roja">especial</span> lleno de <span class="linea-verde">vida</span></p>
+    <h1>Chatbot Ebeybe</h1>
+    <p>Pregunta por nuestros precios horarios y cualquier cosa referente al negocio de peluquería ebeybe playas de Tijuana</p>
+    <div id="chatbox"></div>
+    <input type="text" id="userInput" placeholder="Haz una pregunta..." onkeypress="checkEnter(event)">
+    <button onclick="sendMessage()">Enviar</button>
+
+    <script src="https://unpkg.com/brain.js"></script>
+
+<script type="text/javascript">
+    // Inicializar red neuronal
+    var network = new brain.NeuralNetwork();
+
+    // Entrenar la red neuronal con ejemplos de preguntas y respuestas
+    network.train([
+        {input: {texto: 'ubicación'}, output: {respuesta: 'Estamos ubicados en Playas de Tijuana, Sección Jardines, frente al Mercado Emilia.'}},
+        {input: {texto: 'horarios'}, output: {respuesta: 'Nuestro horario es de lunes a viernes de 10 am a 7 pm, sábados de 11 am a 5 pm y domingos de 11 am a 3 pm.'}},
+        {input: {texto: 'cortes de niños'}, output: {respuesta: 'Hacemos cortes de niños y niñas. El precio para los cortes de niño es 140 pesos mexicanos y el precio para los cortes de niña es 150 pesos mexicanos.'}},
+        {input: {texto: 'cortes de caballero'}, output: {respuesta: 'Los cortes de caballero tienen un valor de 140 pesos mexicanos.'}},
+        {input: {texto: 'cortes de dama'}, output: {respuesta: 'Los cortes de dama tienen un valor de 150 pesos mexicanos.'}},
+        {input: {texto: 'tintes'}, output: {respuesta: 'Realizamos tintes y rayitos. Los precios varían, se necesita una cotización y evaluar la calidad del cabello.'}},
+        {input: {texto: 'planchados'}, output: {respuesta: 'Los planchados tienen un valor de 200 pesos mexicanos.'}},
+        {input: {texto: 'número de teléfono'}, output: {respuesta: 'El número de teléfono es 664 240 2542.'}},
+        {input: {texto: 'productos de belleza'}, output: {respuesta: 'Vendemos productos de belleza y cuidado para el cabello. Pregunta por nuestros productos al número de WhatsApp que es el mismo para las llamadas.'}},
+        {input: {texto: 'citas'}, output: {respuesta: 'Se agenda por cita. No máximo a 10 minutos de espera por cita sin excepciones.'}}
+    ]);
+
+    function normalizarTexto(texto) {
+        // Convertir a minúsculas, eliminar espacios al principio y al final y eliminar signos de interrogación
+        return texto.toLowerCase().trim().replace(/[?¿]/g, '');
+    }
+
+    function checkEnter(event) {
+        if (event.key === 'Enter') {
+            sendMessage();
+        }
+    }
+
+    function sendMessage() {
+        var userInput = document.getElementById('userInput').value;
+        if (userInput === '') return;
+
+        var chatbox = document.getElementById('chatbox');
+        chatbox.innerHTML += `<div class="message user"><span>${userInput}</span></div>`;
+
+        // Normalizar el texto de entrada del usuario
+        var entradaNormalizada = normalizarTexto(userInput);
+
+        // Identificar sinónimos y palabras similares
+        var keywords = {
+            'ubicación': ['ubicación', 'donde', 'dónde', 'ubicada', 'localización'],
+            'horarios': ['horarios', 'horas', 'apertura', 'cierre', 'tiempo', 'disponible'],
+            'cortes de niños': ['cortes de niños', 'corte de niño', 'cortes de niña', 'corte de niña', 'precio cortes de niños', 'precios cortes de niñas'],
+            'cortes de caballero': ['cortes de caballero', 'corte de caballero', 'corte de hombre'],
+            'cortes de dama': ['cortes de dama', 'corte de dama', 'corte de mujer'],
+            'tintes': ['tintes', 'rayitos', 'tinte', 'coloración'],
+            'planchados': ['planchados', 'planchado'],
+            'número de teléfono': ['número de teléfono', 'teléfono', 'número', 'contacto', 'whatsapp'],
+            'productos de belleza': ['productos de belleza', 'productos', 'belleza', 'cuidado del cabello'],
+            'citas': ['citas', 'cita', 'reservar', 'reserva']
+        };
+
+        // Determinar la respuesta basada en palabras clave
+        var respuesta = 'Lo siento, no entiendo la pregunta.';
+        for (var key in keywords) {
+            for (var i = 0; i < keywords[key].length; i++) {
+                if (entradaNormalizada.includes(keywords[key][i])) {
+                    switch (key) {
+                        case 'ubicación':
+                            respuesta = 'Estamos ubicados en Playas de Tijuana, Sección Jardines, frente al Mercado Emilia.';
+                            break;
+                        case 'horarios':
+                            respuesta = 'Nuestro horario es de lunes a viernes de 10 am a 7 pm, sábados de 11 am a 5 pm y domingos de 11 am a 3 pm.';
+                            break;
+                        case 'cortes de niños':
+                            respuesta = 'Hacemos cortes de niños y niñas. El precio para los cortes de niño es 140 pesos mexicanos y el precio para los cortes de niña es 150 pesos mexicanos.';
+                            break;
+                        case 'cortes de caballero':
+                            respuesta = 'Los cortes de caballero tienen un valor de 140 pesos mexicanos.';
+                            break;
+                        case 'cortes de dama':
+                            respuesta = 'Los cortes de dama tienen un valor de 150 pesos mexicanos.';
+                            break;
+                        case 'tintes':
+                            respuesta = 'Realizamos tintes y rayitos. Los precios varían, se necesita una cotización y evaluar la calidad del cabello.';
+                            break;
+                        case 'planchados':
+                            respuesta = 'Los planchados tienen un valor de 200 pesos mexicanos.';
+                            break;
+                        case 'número de teléfono':
+                            respuesta = 'El número de teléfono es 664 240 2542.';
+                            break;
+                        case 'productos de belleza':
+                            respuesta = 'Vendemos productos de belleza y cuidado para el cabello. Pregunta por nuestros productos al número de WhatsApp que es el mismo para las llamadas.';
+                            break;
+                        case 'citas':
+                            respuesta = 'Se agenda por cita. No máximo a 10 minutos de espera por cita sin excepciones.';
+                            break;
+                    }
+                    break;
+                }
+            }
+        }
+
+        // Mostrar la respuesta en el chatbox
+        chatbox.innerHTML += `<div class="message bot"><span>${respuesta}</span></div>`;
+        document.getElementById('userInput').value = '';
+        chatbox.scrollTop = chatbox.scrollHeight;
+    }
+</script>
 </body>
 </html>
