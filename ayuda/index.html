@@ -143,7 +143,14 @@
         {input: {texto: 'planchados'}, output: {respuesta: 'Los planchados tienen un valor de 200 pesos mexicanos.'}},
         {input: {texto: 'número de teléfono'}, output: {respuesta: 'El número de teléfono es 664 240 2542.'}},
         {input: {texto: 'productos de belleza'}, output: {respuesta: 'Vendemos productos de belleza y cuidado para el cabello. Pregunta por nuestros productos al número de WhatsApp que es el mismo para las llamadas.'}},
-        {input: {texto: 'citas'}, output: {respuesta: 'Se agenda por cita. No máximo a 10 minutos de espera por cita sin excepciones.'}}
+        {input: {texto: 'citas'}, output: {respuesta: 'Se agenda por cita. No máximo a 10 minutos de espera por cita sin excepciones.'}},
+        {input: {texto: 'precios'}, output: {respuesta: 'Ofrecemos varios servicios con diferentes precios. Por favor especifique si desea conocer precios para caballero, dama, niños o niñas.'}},
+        {input: {texto: 'precios para caballero'}, output: {respuesta: 'Los cortes de caballero tienen un valor de 140 pesos mexicanos.'}},
+        {input: {texto: 'precios para dama'}, output: {respuesta: 'Los cortes de dama tienen un valor de 150 pesos mexicanos.'}},
+        {input: {texto: 'precios para niños'}, output: {respuesta: 'El precio para los cortes de niño es 140 pesos mexicanos.'}},
+        {input: {texto: 'precios para niñas'}, output: {respuesta: 'El precio para los cortes de niña es 150 pesos mexicanos.'}},
+        {input: {texto: 'quiero agendar una cita'}, output: {respuesta: 'Se agenda por cita. No máximo a 10 minutos de espera por cita sin excepciones.'}},
+        {input: {texto: 'dónde los puedo encontrar'}, output: {respuesta: 'Estamos ubicados en Playas de Tijuana, Sección Jardines, frente al Mercado Emilia.'}}
     ]);
 
     function normalizarTexto(texto) {
@@ -178,7 +185,14 @@
             'planchados': ['planchados', 'planchado'],
             'número de teléfono': ['número de teléfono', 'teléfono', 'número', 'contacto', 'whatsapp'],
             'productos de belleza': ['productos de belleza', 'productos', 'belleza', 'cuidado del cabello'],
-            'citas': ['citas', 'cita', 'reservar', 'reserva']
+            'citas': ['citas', 'cita', 'reservar', 'reserva'],
+            'precios': ['precios', 'precio', 'costos', 'coste', 'tarifas'],
+            'precios para caballero': ['precios para caballero', 'precio para caballero', 'tarifas para caballero'],
+            'precios para dama': ['precios para dama', 'precio para dama', 'tarifas para dama'],
+            'precios para niños': ['precios para niños', 'precio para niños', 'tarifas para niños'],
+            'precios para niñas': ['precios para niñas', 'precio para niñas', 'tarifas para niñas'],
+            'quiero agendar una cita': ['quiero agendar una cita', 'quiero una cita', 'agendar cita', 'reservar cita'],
+            'dónde los puedo encontrar': ['dónde los puedo encontrar', 'donde están', 'ubicación', 'dirección', 'localización']
         };
 
         // Determinar la respuesta basada en palabras clave
@@ -217,7 +231,28 @@
                         case 'citas':
                             respuesta = 'Se agenda por cita. No máximo a 10 minutos de espera por cita sin excepciones.';
                             break;
-                    }
+                        case 'precios':
+                            respuesta = 'Ofrecemos varios servicios con diferentes precios. Por favor especifique si desea conocer precios para caballero, dama, niños o niñas.';
+                            break;
+                        case 'precios para caballero':
+                            respuesta = 'Los cortes de caballero tienen un valor de 140 pesos mexicanos.';
+                            break;
+                        case 'precios para dama':
+                            respuesta = 'Los cortes de dama tienen un valor de 150 pesos mexicanos.';
+                            break;
+                        case 'precios para niños':
+                            respuesta = 'El precio para los cortes de niño es 140 pesos mexicanos.';
+                            break;
+                        case 'precios para niñas':
+                            respuesta = 'El precio para los cortes de niña es 150 pesos mexicanos.';
+                            break;
+                        case 'quiero agendar una cita':
+                            respuesta = 'Se agenda por cita. No máximo a 10 minutos de espera por cita sin excepciones.';
+                            break;
+                        case 'dónde los puedo encontrar':
+                            respuesta = 'Estamos ubicados en Playas de Tijuana, Sección Jardines, frente al Mercado Emilia.';
+                            break;
+                    }               
                     break;
                 }
             }
@@ -229,5 +264,7 @@
         chatbox.scrollTop = chatbox.scrollHeight;
     }
 </script>
+                   
+
 </body>
 </html>
