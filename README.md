@@ -1,5 +1,8 @@
 # Estética Ebeybe Playas de Tijuana
 
+SITIO WEB AQUÍ ⭐
+https://ebeybe.github.io
+
 Bienvenidos a Estética Ebeybe, donde ofrecemos más de 20 años de experiencia en servicios de peluquería y estética en Playas de Tijuana. Nos especializamos en brindar cortes de cabello y tratamientos de belleza de alta calidad para toda la familia.
 
 ## Servicios Ofrecidos
@@ -36,7 +39,7 @@ Estamos ubicados en Playas de Tijuana, Baja California, México.
 ## Contacto
 
 - **Teléfono**: [+52 664 240 2542](tel:+526642402542)
-- **Email**: [info@esteticaebeybe.com](mailto:info@esteticaebeybe.com)
+- **Email**: [info@esteticaebeybe.com](mailto:cmbr738@gmail.com)
 - **WhatsApp**: [Enviar mensaje](https://wa.me/526642402542?text=Me%20gustaría%20agendar%20una%20cita%20por%20favor.)
 
 ## Sobre Nosotros
